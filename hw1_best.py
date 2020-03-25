@@ -18,11 +18,11 @@ for month in range(12):
     for day in range(20):
         
         sample[:, day * 24 : (day + 1) * 24] = raw_data[18 * (20 * month + day) : 18 * (20 * month + day + 1), :]
-        # sample[0]=np.zeros(480);
-        # sample[8]=np.zeros(480);
-        # #sample[2]=np.zeros(480);
-        # sample[12]=np.zeros(480);
-        # sample[17]=np.zeros(480);
+        sample[0]=np.zeros(480);
+        sample[8]=np.zeros(480);
+        #sample[2]=np.zeros(480);
+        sample[12]=np.zeros(480);
+        sample[17]=np.zeros(480);
 
     month_data[month] = sample
     #print(np.shape(sample))
@@ -80,9 +80,9 @@ for t in range(iter_time):
     adagrad += gradient ** 2
     w = w - learning_rate * gradient / np.sqrt(adagrad + eps)
 
-np.save('weight.npy', w)
-np.save('std_x.npy',std_x)
-np.save('mean_x.npy',mean_x)
+np.save('weight_best.npy', w)
+np.save('std_x_best.npy',std_x)
+np.save('mean_x_best.npy',mean_x)
 testdata = pd.read_csv(sys.argv[1], header = None, encoding = 'big5')
 test_data = testdata.iloc[:, 2:]
 test_data[test_data == 'NR'] = 0

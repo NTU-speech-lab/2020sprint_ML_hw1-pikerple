@@ -9,8 +9,8 @@ test_data[test_data == 'NR'] = 0
 test_data = test_data.to_numpy()
 test_x = np.empty([240, 18*9], dtype = float)
 test_y = np.empty([240*9,1], dtype = float)
-std_x = np.load('std_x.npy')
-mean_x = np.load('mean_x.npy')
+std_x = np.load('std_x_best.npy')
+mean_x = np.load('mean_x_best.npy')
 for i in range(240):
     test_x[i, :] = test_data[18 * i: 18* (i + 1), :].reshape(1, -1)
     #print(test_y[:,0])
